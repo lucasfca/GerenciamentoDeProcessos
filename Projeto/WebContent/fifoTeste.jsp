@@ -59,14 +59,29 @@
 						<div id="page-wrapper">
 	  						<h2 id="fifo" name="fifo">First Come, First Served </h2>
 	  						<hr>
-							<div class="controls">
-								<button type="button" id="startBtn">Iniciar</button>
-								<button type="button" id="stopBtn">Parar</button>
-								<button type="button" id="resetBtn">Refazer</button>
-	  						</div>
-							<canvas id="stage" width="600" height="100"></canvas>
-						</div>	
-					</div>
+	  						
+	  						<form  class="container" action="controller.do" method="post">
+	  							<div class="form-group">
+	  							 Insira tarefas na lista
+	  							 <br>
+	  							 <br>
+		  							<label for="addItem">Tarefa:</label> 
+		  							<input id="addItem" placeholder="Ex.: Alimentar o gato" /> 
+		  								<button href="controller.do?command=InserirProcesso">Adicionar</button>
+	  							</div>
+	  						</form>
+	  						<ul>
+		  						<li>            
+		  							<button>Remove</button>
+		  						</li>
+		  						<br>
+		  						<li>            
+		  							<button>Remove</button>
+		  						</li>
+		  					</ul>
+		  				</div>
+					</div>	
+				
 											
 						
 					      	
@@ -81,7 +96,8 @@
 			<script src="js/jquery/jquery-ui.min.js"></script>
 			<script src="js/jquery/jquery-ui.js"></script>
 			<script src="js/bootstrap/bootstrap.bundle.min.js"></script>
-			<script src="js/fifo.js"></script>
+			<script src="js/fifoTeste.js"></script>
+			
 			
 			
 			
