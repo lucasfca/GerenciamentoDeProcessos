@@ -7,42 +7,25 @@ public class Processo implements Serializable{
 	
 	/* Atributos */
 	private String nomeProcesso;
-	private double tempoDuracao;
-	private int prioridadeProcesso;
 	private int tempoChegada;
-	private String estado;
-	private String tipoProcesso;
-	
-	/* Metodo Construtor */
-	public Processo() {
+	private int duracao;
+	private int duracaoRestante;
+
+	public Processo(String nomeProcesso, int tempoChegada, int duracao) {
+		this.nomeProcesso = nomeProcesso;
+		this.tempoChegada = tempoChegada;
+		this.duracao = duracao;
+		this.duracaoRestante = duracao;
 	}
 
-	/* Métodos GETS e SETS */
-	
 	public String getNomeProcesso() {
 		return nomeProcesso;
 	}
 
-	public void setNomeProcesso(String nomeProcesso) {
+	public void setId(String nomeProcesso) {
 		this.nomeProcesso = nomeProcesso;
 	}
-
-	public double getTempoDuracao() {
-		return tempoDuracao;
-	}
-
-	public void setTempoDuracao(double tempoDuracao) {
-		this.tempoDuracao = tempoDuracao;
-	}
-
-	public int getPrioridadeProcesso() {
-		return prioridadeProcesso;
-	}
-
-	public void setPrioridadeProcesso(int prioridadeProcesso) {
-		this.prioridadeProcesso = prioridadeProcesso;
-	}
-
+	
 	public int getTempoChegada() {
 		return tempoChegada;
 	}
@@ -51,21 +34,42 @@ public class Processo implements Serializable{
 		this.tempoChegada = tempoChegada;
 	}
 
-	public String getEstado() {
-		return estado;
+	public int getDuracao() {
+		return duracao;
 	}
 
-	public void setEstado(String estado) {
-		this.estado = estado;
+	public void setDuracao(int duracao) {
+		this.duracao = duracao;
 	}
 
-	public String getTipoProcesso() {
-		return tipoProcesso;
+	public int getDuracaoRestante() {
+		return duracaoRestante;
 	}
 
-	public void setTipoProcesso(String tipoProcesso) {
-		this.tipoProcesso = tipoProcesso;
+	public void setDuracaoRestante(int duracaoRestante) {
+		this.duracaoRestante = duracaoRestante;
 	}
-	
-	
+
+	/**
+	 * Ordena a lista de acordo com a duracao e tempo de chegada
+	 * 
+	 * @param Processo
+	 */
+	public int compareTo(Processo p) {
+		if ( (this.tempoChegada < p.getTempoChegada() || this.tempoChegada == p.getTempoChegada())
+				&& (this.getDuracao() < p.getDuracao()) ) {
+			return -1;
+		} else if ( (this.tempoChegada > p.getTempoChegada() || (this.tempoChegada == p.getTempoChegada()) && 
+				this.getDuracao() > p.getDuracao()) ) {
+			return 1;
+		} else {
+			return 0;
+		}
+	}
+
+	@Override
+	public String toString() {
+		return "P" + getNomeProcesso() + "(" +getTempoChegada() + " "+ getDuracao() + ")";
+	}
+
 }

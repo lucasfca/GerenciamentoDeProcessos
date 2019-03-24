@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
 	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+	<%@ page import="java.util.List"%>
+	<%@ page import="java.util.ArrayList" %>
+	<%@ page import="model.Processo" %>
+	
 	
 		<!DOCTYPE HTML>
 	<html lang="pt-br">
@@ -17,6 +21,7 @@
 			
 		</head>
 		<body>
+
 
 <%-- 		<c:import url="menu.jsp"></c:import> --%>
 			
@@ -59,14 +64,56 @@
 						<div id="page-wrapper">
 	  						<h2 id="fifo" name="fifo">First Come, First Served </h2>
 	  						<hr>
-							<div class="controls">
-								<button type="button" id="startBtn">Iniciar</button>
-								<button type="button" id="stopBtn">Parar</button>
-								<button type="button" id="resetBtn">Refazer</button>
-	  						</div>
-							<canvas id="stage" width="600" height="100"></canvas>
-						</div>	
-					</div>
+	  						
+	  						<form  class="container" action="controller.do" method="post">
+	  							<div class="form-group">
+	  							 Insira tarefas na lista
+	  							 <br>
+	  							 <br>
+		  							<label for="addItem">Tarefa:</label> 
+		  							<input id="addItem" type="text" name="nomeProcesso" placeholder="Ex.: Alimentar o gato" /> 
+		  							<input type="number"name="tempoChegada" placeholder="Tempo de chegada" />
+		  							<input type="number" name="duracao" placeholder="Duração" />
+		  								<input type="submit" class="btn btn-success" name="command" value="InserirProcesso">
+	  							</div>
+	  						</form>
+	  						<ul>
+	  					     <%
+	  					     ArrayList<Processo> processos = (ArrayList<Processo>)request.getSession().getAttribute("Meus Processos"); 
+	  					     %>
+	  						<form action="controller.do" method="post">  
+		  						<li>            
+		  							<button name="command" value="ListarProcessos">Mostrar Processos</button>
+		  							
+		  						</li>
+		  						<table class=" table table-striped table-hover table-bordered "  cellspacing="0" cellpadding="0">
+                <thead>
+                    <tr style="background-color: #90ee90;">
+                        <th >Nome Processo</th>
+                        <th>Tempo Chegada</th>
+                        <th>Duracao</th>
+                    </tr>
+                    </thead>
+                    
+                    <%
+                    	for(int i =0; i < processos.size();i++){
+                    		out.println("<tr>");
+                    			out.println("<td>" + processos.get(i).getNomeProcesso() + "</td>");
+                    			out.println("<td>" + processos.get(i).getTempoChegada() + "</td>");
+                    			out.println("<td>" + processos.get(i).getDuracao() + "</td>");
+                    		out.println("</tr>");	
+                    		
+                    		
+                    	}
+                    %>
+                    
+                    
+                    </table>
+		  					</form>
+		  					</ul>
+		  				</div>
+					</div>	
+				
 											
 						
 					      	
@@ -81,7 +128,8 @@
 			<script src="js/jquery/jquery-ui.min.js"></script>
 			<script src="js/jquery/jquery-ui.js"></script>
 			<script src="js/bootstrap/bootstrap.bundle.min.js"></script>
-			<script src="js/fifo.js"></script>
+			<script src="js/fifoTeste.js"></script>
+			
 			
 			
 			
