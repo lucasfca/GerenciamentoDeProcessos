@@ -18,7 +18,10 @@ public class ListarProcessos implements Command {
 	@Override
 	public void executar(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+			
+		HttpSession session = request.getSession();
 		
+				@SuppressWarnings("unchecked")
 				ArrayList<Processo> processos = (ArrayList<Processo>)request.getSession().getAttribute("Meus Processos");
 				
 				String erro="";
@@ -28,9 +31,12 @@ public class ListarProcessos implements Command {
 					request.getRequestDispatcher("erro.jsp").forward(request, response);;
 				}
 				else {
-					request.getRequestDispatcher("fifoTeste.jsp").forward(request, response);;
+					session.setAttribute("processos", processos);
+					request.getRequestDispatcher("FCFS.jsp").forward(request, response);;
 					
 				}
+				
+				
 	}
 
 }
