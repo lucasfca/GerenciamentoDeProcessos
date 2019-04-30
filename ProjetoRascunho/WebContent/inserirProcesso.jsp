@@ -71,9 +71,9 @@
 	  							 <br>
 	  							 <br>
 		  							<label for="addItem">Tarefa:</label> 
-		  							<input id="addItem" type="text" name="nomeProcesso" placeholder="nome do Processo" /> 
-		  							<input type="number"name="tempoChegada" placeholder="Tempo de chegada" />
-		  							<input type="number" name="duracao" placeholder="Duração" />
+<!-- 		  							<input id="addItem" type="text" name="nomeProcesso" placeholder="nome do Processo" />  -->
+		  							<input type="number"name="new_a" placeholder="Tempo de chegada" />
+		  							<input type="number" name="new_d" placeholder="Duração" />
 		  								<input type="submit" class="btn btn-success" name="command" value="InserirProcesso">
 	  							</div>
 	  						</form>
@@ -88,7 +88,7 @@
 		  						<table class=" table table-striped table-hover table-bordered "  cellspacing="0" cellpadding="0">
                 					<thead>
                     					<tr style="background-color: #90ee90;">
-					                        <th >Nome de Processo</th>
+<!-- 					                        <th >Nome de Processo</th> -->
 					                        <th>Tempo de Chegada</th>
 					                        <th>Duração</th>
                     					</tr>
@@ -96,7 +96,7 @@
 				                    <tbody>					                         			                     
 										<c:forEach var="processos" items="${processos}">					                   		
 									    	<tr>
-									        	<td>${processos.getNomeProcesso()}</td>				                  	
+<%-- 									        	<td>${processos.getNomeProcesso()}</td>				                  	 --%>
 												<td>${processos.getTempoChegada()}</td>
 									         	<td>${processos.getDuracao()} </td>					                  							                 
 									        </tr>

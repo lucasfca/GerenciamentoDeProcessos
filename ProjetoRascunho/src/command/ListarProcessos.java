@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.google.gson.Gson;
+
 import model.Processo;
 
 public class ListarProcessos implements Command {
@@ -20,10 +22,11 @@ public class ListarProcessos implements Command {
 			throws ServletException, IOException {
 			
 		HttpSession session = request.getSession();
-		
+		Processo processo = new Processo();
 				@SuppressWarnings("unchecked")
 				ArrayList<Processo> processos = (ArrayList<Processo>)request.getSession().getAttribute("Meus Processos");
 				
+			    
 				String erro="";
 				if (processos == null) {
 					erro = "Não existe nenhum processo";
@@ -32,9 +35,10 @@ public class ListarProcessos implements Command {
 				}
 				else {
 					session.setAttribute("processos", processos);
-					request.getRequestDispatcher("FCFS.jsp").forward(request, response);;
-					
+					request.getRequestDispatcher("inserirProcesso.jsp").forward(request, response);;
 				}
+				
+				
 				
 				
 	}

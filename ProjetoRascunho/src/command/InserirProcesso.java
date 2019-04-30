@@ -39,12 +39,14 @@ public class InserirProcesso implements Command {
 				}
 				
 				Processo p = new Processo(nomeProcesso,tempoChegada,duracao);
+				@SuppressWarnings("unchecked")
 				ArrayList<Processo> processos = (ArrayList<Processo>)request.getSession().getAttribute("Meus Processos");
 				
 				if (processos == null) {
 					processos = new ArrayList<Processo>();
 					processos.add(p);
 					request.getSession().setAttribute("Meus Processos", processos);
+					request.getRequestDispatcher("ProcessoAdicionado.jsp").forward(request,response);
 				}
 				else {
 					processos.add(p);

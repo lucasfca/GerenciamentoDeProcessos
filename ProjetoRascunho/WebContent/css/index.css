@@ -1,5 +1,12 @@
 /* Change this breakpoint if you change the breakpoint of the navbar */
 
+
+#img2{
+	background-image: url(../imagens/imagem1.gif) ;
+	background-repeat: no-repeat;
+    background-size:100%;	
+}
+
 @media (min-width: 992px) {
   .animate {
     animation-duration: 0.3s;
@@ -47,15 +54,59 @@
 /* Other styles for the page not related to the animated dropdown */
 
 body {
-  background: #007bff;
-  background: linear-gradient(to right, #0062E6, #33AEFF);
+  background: #4089a6;
+  background: linear-gradient(to right, #4089a6, #33AEFF);
+
 }
 
 
-.btn-custom {
-	padding: 70px 30px 60px 30px;
-	border-radius: 8px;
+h1 {
+  color: #ffffff;
+  margin-bottom: 1em;
+  font-size: 2.2rem;
 }
+
+#titulo {
+  animation-duration: 3s;
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
+}
+
+h2 {
+  color: #ffffff;
+  margin-bottom: 1em;
+  font-size: 2.2rem;
+}
+
+.cd-btn {
+  display: inline-block;
+  padding: 1.4em 1.6em;
+  margin-bottom: 2em;
+  border-radius: 50em;
+  background-color: #283040;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.no-touch .cd-btn:hover {
+  background-color: #323c50;
+}
+.cd-about .cd-btn {
+  background-color: #4089a6;
+}
+
+/* .load{ */
+/*     z-index:99999; */
+/*     top:0; left:0; */
+/*     width:100%; height:100%; */
+/*     opacity:1; */
+/*     background-image: url(../imagens/loading.gif) ; */
+/*     background-position:50% 50%; */
+/*     background-repeat:no-repeat; */
 
 
 

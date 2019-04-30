@@ -1,0 +1,86 @@
+@charset "ISO-8859-1";
+
+	body{
+		font-family: 'Ubuntu', sans-serif;
+	}
+	div.table-wrapper {
+		padding: 5px ;
+		border-bottom: 1px solid #e2e2e2 ; 
+		height: 600px ; 
+	}
+	div.table-wrapper div.container {
+		height: 100% ;
+	}
+	body > div.table-wrapper > div > div {
+		height: 100% ;
+		overflow :scroll ;
+	}
+	div.view-wrapper{
+		/*border: 1px solid black ;*/
+		position: relative;
+		top : 30px ;
+	}
+	div.time-sep{
+		position: absolute; 
+		margin: 0 ; 
+		left: 20px ; 
+		background: black ; 
+		width: 0 ; 
+		height: 30px ; 
+		border-right: 1px solid #e2e2e2 ;
+		transition : all .3s ease ;
+		opacity: 0 ; 
+		top : 20px ; 
+	} 
+	div.time-sep.show {
+		top : 0px ;
+		opacity: 1 ;
+	}
+	span.time-axis {
+		position: absolute; 
+		top : 40px ;
+		font-size: 9px ;
+		right: -4px ;  
+	}
+
+	div.time-block{
+		overflow: hidden;
+		font-size: 11px ; 
+		width: 0 ;
+		text-align: center;
+		line-height: 30px ;
+		height: 50px ; 
+		background: black ;
+		position: absolute; 
+		left: 25px ; 
+		height: 90px ;
+		transition : all .98s ease-in-out ;
+	} 
+	div.time-block.stall {
+		background-color: transparent;
+		border: 1px dashed #e4e4e4 ; 
+	}
+	div.time-block.stall span {
+		color: gray ; 
+	}
+
+	span.proc-id {
+		color: white ; 
+
+	}
+	.cat-cpu{
+		width: 200px;
+	} 
+	   
+	
+	.proc-anime { 
+ 		width: 100%; 
+ 	}
+
+	div.time-block.show {
+		width: 40px ; 
+	}
+	p.sum {
+		font-size: 10px ;
+	}
+	

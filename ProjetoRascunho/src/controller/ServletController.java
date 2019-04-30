@@ -1,7 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,16 +8,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import command.Command;
 
-@WebServlet("/controller.do")
+
+@RestController
+@RequestMapping @WebServlet("/controller.do")
 public class ServletController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doExecute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			request.setCharacterEncoding("UTF-8");
-			//Aqui eu posso alterar o nomme "command" se eu quiser
+			//Aqui eu posso alterar o nome "command" se eu quiser
 			Command comando = (Command)Class.forName("command."+request.getParameter("command")).newInstance();
 			comando.executar(request, response);
 		} catch (InstantiationException | IllegalAccessException
