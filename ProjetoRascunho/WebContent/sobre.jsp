@@ -1,14 +1,16 @@
-<!doctype html>
-<html lang="en" class="no-js">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
-
-	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
-	<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
-	<script src="js/modernizr.js"></script> <!-- Modernizr -->
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE HTML>
+	<html lang="pt-br">
+		<head>
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1">		
+			<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+		 	<title>e-Processos</title>
+			<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
+			<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
+			<script src="js/modernizr.js"></script> <!-- Modernizr -->
+			<link href="imagens/icon-tab.png" rel="shortcut icon" type="image/x-icon"/>     
   	
 	<title>About | CodyHouse</title>
 </head>
@@ -22,7 +24,7 @@
 				<h1>e-Processos</h1>
 
 				<p>
-					O e-Processos é um jogo que representa de forma interativa e animada
+					O e-Processos Ã© um jogo que representa de forma interativa e animada
 					 a funcionalidade dos principais algoritmos dentro de um Sistema Operacional, sendo eles: 
 				</p>
 				<p>
@@ -30,14 +32,14 @@
 					Shortest Job First (SJF), Por Prioridade, Round-Robin (RR) e outros.
 				</p>
 				<p>
-				Além da representação desses algoritmos, você também poderá acompanhar a funcionalidade 
-				de um Gerenciamento de Memória. 
+				AlÃ©m da representaÃ§Ã£o desses algoritmos, vocÃª tambÃ©m poderÃ¡ acompanhar a funcionalidade 
+				de um Gerenciamento de MemÃ³ria. 
 				</p>
 				<p>
-					Você está pronto para interagir com as funcionalidades de um sistema operacional? 
+					VocÃª estÃ¡ pronto para interagir com as funcionalidades de um sistema operacional? 
 				</p>
 				<p>
-					Volte a tela inicial e enriqueça os seus conhecimentos.
+					Volte a tela inicial e enriqueÃ§a os seus conhecimentos.
 				</p>
 				
 			</div>

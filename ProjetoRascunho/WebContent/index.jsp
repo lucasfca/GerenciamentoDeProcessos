@@ -40,7 +40,7 @@
 						         		 <!-- menu -->
 						          		<div class="dropdown-menu dropdown-menu-right animate slideIn" aria-labelledby="navbarDropdown">
 						          			<a class="dropdown-item" href="processo.jsp"> Processos</a>
-						          			<a class="dropdown-item" href="memoria.jsp"> Memórias</a>
+						          			<a class="dropdown-item" href="memorias.jsp"> Memórias</a>
 						            		<div class="dropdown-divider"></div>
 						            		<a class="dropdown-item" href="sobre.jsp">Sobre</a>
 						          		</div>
@@ -51,7 +51,7 @@
 					</nav>
 				
 					<div class="container text-center">
-					  <h1 id="eProcessos" class="mt-5 text-white font-weight-light animated infinite bounce">Simulador de Processos</h1>
+					  <h1 id="eProcessos" class="mt-5 text-white font-weight-light animated infinite bounce">Simulador de Processos e Memórias</h1>
 					  <h2 class="lead text-white-50 animated infinite pulse">Olá, eu sou o Mário. Seja bem vindo ao e-Processos.
 										A partir de agora serei o seu guia neste game.
 										Escolha o programa a ser executado no menu acima ou aperte o botão abaixo para executar os processos aleatoriamente:</h2>

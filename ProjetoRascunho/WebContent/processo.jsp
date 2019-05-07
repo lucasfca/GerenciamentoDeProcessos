@@ -58,7 +58,8 @@
 				<div class="container"> 
 					<div class="panel panel-default"> 
 					  <div class="panel-heading"> 
-					    <h3 class="panel-title">Precisamos executar os processos. Passe o mouse em cima do Mário e entenda o que fazer para que isso aconteça:</h3>
+					     <h1 class="panel-title" style=color:#708090;><center>Gerenciador de Processos</center></h1>
+					    <p>Precisamos executar os processos. Passe o mouse em cima do Mário e entenda o que fazer para que isso aconteça:</p>
 					  </div>
 					  <%
 					  	ArrayList<Processo> processos = (ArrayList<Processo>)request.getSession().getAttribute("Meus Processos"); 

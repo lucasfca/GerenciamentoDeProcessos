@@ -20,46 +20,15 @@
 	   		    
 		</head>
 		<body class="cd-about" style="background-image: url(imagens/nyan-cat.gif); background-size: contain;" >
-					
- 		<!--  Barra superior com os menus de navegação 
- 		style="background-image: url(imagens/imagem2.gif); "width="2000" height="100"--> 
-<%--  			<c:import url="menu.jsp"></c:import>    --%>
-
-		<!-- Barra superior com os menus de navegação -->
-<!-- 					<nav class="navbar navbar-expand-lg navbar-light bg-light"> -->
-<!-- 						<div class="container"> -->
-<!-- 					    	<a class="navbar-brand" href="index.jsp">e-Processos</a> -->
-<!-- 					    	<button class="navbar-toggler" type="button" data-toggle="collapse"  -->
-<!-- 					    			data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"  -->
-<!-- 					    			aria-expanded="false" aria-label="Toggle navigation"> -->
-<!-- 					    		<span class="navbar-toggler-icon"></span> -->
-<!-- 					 		</button> -->
-					
-<!-- 						    <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
-<!-- 						    	<ul class="navbar-nav ml-auto"> -->
-<!-- 						       		<li class="nav-item dropdown"> -->
-<!-- 						          		<a 	class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"  -->
-<!-- 						          			data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Processos -->
-<!-- 						        		</a> -->
-						          
-<!-- 						         		 menu -->
-<!-- 						          		<div class="dropdown-menu dropdown-menu-right animate slideIn" aria-labelledby="navbarDropdown"> -->
-<!-- 						          			<a class="dropdown-item" href="processo.jsp"> Executar</a> -->
-<!-- 						            		<div class="dropdown-divider"></div> -->
-<!-- 						            		<a class="dropdown-item" href="sobre.jsp">Sobre</a> -->
-<!-- 						          		</div> -->
-<!-- 						        	</li> -->
-<!-- 						      	</ul> -->
-<!-- 						   </div> -->
-<!-- 						</div> -->
-<!-- 					</nav> -->
+				
 
 			<div class="table-wrapper">
 				<div class="container">
 					<div class="panel panel-default">
 					  <div class="panel-heading">
-					    <h3 class="panel-title">Os processos serão executados aleatoriamente. 
-					    Passe o mouse em cima do Mário e entenda o que fazer para que isso aconteça:</h3>
+					    <h1 class="panel-title" style=color:#708090;><center>Gerenciador de Processos</center></h1>
+					    <p>Os processos serão executados aleatoriamente. 
+					    	Passe o mouse em cima do Mário e entenda o que fazer para que isso aconteça:</p>
 					  </div>
 					  <div class="panel-body">
 					  	<div class="row">
@@ -172,7 +141,7 @@
 			</script>
 			
 
-<!-- Javascript -->
+					<!-- Javascript -->
 			<script src="js/randomico.js"></script>
 			<script src="js/jquery/jquery.js"></script>
 			<script src="js/jquery/jquery-ui.js"></script>
@@ -180,5 +149,5 @@
 			<script src="js/modernizr.js"></script>
 			<script src="js/index.js"></script>
 			
-</body>
+	</body>
 </html>
