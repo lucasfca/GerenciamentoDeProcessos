@@ -1,13 +1,50 @@
-var FIFO = function ( conf ) {
+$("[id=addProc]").on("click", function() {
+$.ajax({
+    type: "GET",
+    url: "controller.do",
+    data: { command: "InserirProcesso" },
+    success: function(data){
+    	console.log(data);	
+
+    },
+}).done(function( data ) {
+	
+ var message = jsonParser(data);
+	    $( '#tbody' ).html( message );
+//    var message = parseInt(data);
+//    if (Number.isNaN(data))
+//        numero = 0; // zerando caso seja NaN
+//    $( '#tbody' ).html( data );
+   
+})
+function jsonParser(data) {
+//            var _add = "";
+	var _add = $("<tr> <td>P"+ conf.length +"</td> <td> <input id='new_a' name='new_a' class='form-control' min='0' type='number'/> </td> <td> <input id='new_d' name='new_d' class='form-control' type='number' min='1'/> </td> </tr>") ; 
+            var count = 0;
+//            $.each(data, function(i, item) {
+            	
+        		console.log(_add) ;
+        		$tbody.append(_add) ; 
+            };
+//            return _add;
+//        }
+	
+	    });
+	
+	var FIFO = function ( conf ) {
 	var grunt = [] ; 
 	time = 0 ; 
+	
 
 	var findNext = function () {
+		 "JsonParse converte um texto no formato javaScript"
+		 "JSON.stringify() converte este objeto para o formato de texto JSON"
 		var _conf = JSON.parse(JSON.stringify(conf)) ; 
 		_conf = _conf.filter(function (obj) {
 			return obj.r > 0 && obj.a <= time  
 		}) ;
-		_conf.sort(function (a , b ) { return a.a > b.a } ) ;  
+		"O metodo sort() ordena os elementos do próprio vetor e retorna este vetor"
+		_conf.sort(function (a , b ) { return a.a > b.a  } ) ;  
 		return _conf[0] ; 
 	}
 
@@ -38,7 +75,7 @@ var FIFO = function ( conf ) {
 
 	} ; 
 
-	var LIFO = function ( conf ) {
+	var PP = function ( conf ) {
 		var grunt = [] ; 
 		time = 0 ; 
 
@@ -59,7 +96,7 @@ var FIFO = function ( conf ) {
 			if ( _next != undefined ) {
 				//console.log(time , _next) ;
 				var _nextIdx = _next.idx ;
-				var _duration = _next.d ;
+				var _duration = _next.a ;
 				
 				conf[_nextIdx].r = 0  ;
 				if ( conf[_nextIdx].fr == null ) { conf[_nextIdx].fr = time }
@@ -84,14 +121,14 @@ var FIFO = function ( conf ) {
 
 	var SJF = function (conf) {
 		var grunt = [] ; 
-		time = 0 ; 
+		time = 1 ; 
 
 		var findNext = function () {
 			var _conf = JSON.parse(JSON.stringify(conf)) ; 
 			_conf = _conf.filter(function (obj) {
-				return obj.r < 0 && obj.a <= time  
+				return obj.r > 0 && obj.d <= time  
 			}) ;
-			_conf.sort(function (a , b ) { return a.d > b.d } ) ;  
+			_conf.sort(function (a , b ) { return a.d > b.d} ) ;  
 			return _conf[0] ; 
 		}
 
@@ -112,7 +149,7 @@ var FIFO = function ( conf ) {
 				for ( var i = 0 ; i < _duration ; i++ ) {
 					grunt.push(_next.idx) ; 
 				}
-				//console.log("g : " , grunt) ; 
+				console.log("g : " , grunt) ; 
 			}
 
 			// appned a Stall 
@@ -275,7 +312,7 @@ var FIFO = function ( conf ) {
 			_newNode.addClass('stall') ; 
 		}
 		else {
-			_newNode = $("<div class='time-block'><span class='proc-id'>P" + procId + "</span><img class='proc-anime' src='imagens/giphy.gif' alt=''></div>") ;  
+			_newNode = $("<div class='time-block'><span class='proc-id'>P" + procId + "</span><img class='proc-anime' src='imagens/giphy.gif' alt=''></div>") ; 
 			_newNode.css('left' , _leftMargin + 5 + idx * _blockWidth ) ; 
 			_newNode.css('background-color' , color) ; 
 		}
@@ -291,6 +328,7 @@ var FIFO = function ( conf ) {
 			renderSummery(conf) ; 
 			return 
 		}
+		//AQUI MOSTRA A ANIMAÇÃO DOS PROCESSOS
 		var _next = grunt.shift() ;
 		var _c ; 
 		if ( _next != -1 ) { _c = conf.filter(function ( obj ){ return obj.idx == _next })[0].color }
@@ -330,12 +368,13 @@ var FIFO = function ( conf ) {
 	var renderProcess = function ( conf ) {
 		$tbody.empty() ;
 		for ( var i = 0 ; i < conf.length ; i ++ ) {
+			//Mostra o processo tempo de chegada e duração na tela
 			var _tr = $("<tr> <td style='color : " + conf[i].color + "'>" + ("P"+i) + "</td> <td> " + conf[i].a + " </td> <td> " + conf[i].d + "</td> <td> <button class='removeProcess btn btn-danger btn-xs' onclick=removeProcess(" + i + ")> Remove </button></td> </tr>")
 			$tbody.append(_tr) ; 
 		} ; 
-		var _add = $("<tr> <td>P"+ conf.length +"</td> <td> <input id='new_a' class='form-control' min='0' type='number'/> </td> <td> <input id='new_d' class='form-control' type='number' min='1'/> </td> </tr>") ; 
-		console.log(_add) ;
-		$tbody.append(_add) ; 
+//		var _add = $("<tr> <td>P"+ conf.length +"</td> <td> <input id='new_a' class='form-control' min='0' type='number'/> </td> <td> <input id='new_d' class='form-control' type='number' min='1'/> </td> </tr>") ; 
+//		console.log(_add) ;
+//		$tbody.append(_add) ; 
 	}
 
 	var removeProcess = function (idx) {
@@ -353,8 +392,11 @@ var FIFO = function ( conf ) {
 	var color = ["#e51c23" , "#9c27b0" , "#673ab7" , "#7c4dff" , "#3f51b5" , "#00bcd4" , "#259b24" , "#ff9800" , "#ff5722" , "#009688"] ;
 	var conf = [
  		{ a : 0 , d : 3  , color : color[0] } , 
- 		{ a : 1 , d : 1  , color : color[1] } , 
- 		{ a : 2 , d : 5  , color : color[2] } 
+ 		{ a : 1 , d : 5  , color : color[1] } , 
+ 		{ a : 2 , d : 2  , color : color[2] },
+ 		{ a : 3 , d : 4  , color : color[3] },
+ 		{ a : 4 , d : 1  , color : color[3] },
+
 	] ; 
 
 	$(document).ready(function(){
@@ -363,51 +405,13 @@ var FIFO = function ( conf ) {
 		$("button.removeProcess").bind('click' , function () {
 			console.log($(this).attr('data-idx')) ; 
 		})
-		
-		// executa os algoritmos aleatoriamente
 		$("#start").click(function () {
 			$('div.time-block').remove() ;
 			initView();
-			var _ret = null ;
-			var r;
-			r = Math.floor((Math.random() * 100) + 1);
-			var _type; 
-			
-			if(r > 0 && r < 50){
-				_type = "FIFO";
-				document.getElementById("1").checked = true;
-			
-			}else if(r > 50 && r < 75) {
-				_type = "RR";
-//				document.getElementById("1").checked = false;
-				document.getElementById("3").checked = true;
-				
-			}else if(r > 75 && r < 100){
-				_type = "PP";
-				document.getElementById("4").checked = true;
-			}
-						
-//			else if(r > 25 && r < 50 ){
-//				_type = "RR";
-////				document.getElementById("1").checked = false;
-//				document.getElementById("3").checked = true;
-//				
-//			} else if (r > 50 && r <75){
-//				_type = "PP";
-//				document.getElementById("4").checked = true;
-//
-//			}
-//			else {
-//				_type = "SJF";
-//				document.getElementById("2").checked = true;
-//
-//			}
-//			
-			console.log(r);
-			
-			
-			switch (_type) {
-				case "PP" :
+			var _ret = null ;  
+			var _type = $("input[type=radio]:checked").val() ; 
+			switch ( _type ) {
+				case "LIFO" :
 					_ret = LIFO(conf) ;
 					break ;  
 				case "FIFO" :
@@ -415,6 +419,9 @@ var FIFO = function ( conf ) {
 					break ;
 				case "SJF" :
 					_ret = SJF(conf) ; 
+					break ;
+				case "PP" :
+					_ret = PP(conf) ; 
 					break ; 
 				case "RR" :
 					_q = $("#RRQ").val() ; 
@@ -431,4 +438,4 @@ var FIFO = function ( conf ) {
 		}) 
 		renderProcess(conf) ;  
 		
-	}); 
+	})	; 
